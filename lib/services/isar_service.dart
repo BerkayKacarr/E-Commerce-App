@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/models/product_model.dart';
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
 import '../models/user_model.dart';
@@ -8,7 +9,7 @@ class IsarService {
   static Future<void> init() async {
     final dir = await getApplicationDocumentsDirectory();
     isar = await Isar.open(
-      [UserModelSchema],
+      [UserModelSchema, ProductModelSchema],
       directory: dir.path,
     );
   }
@@ -25,5 +26,15 @@ class IsarService {
 
   Future<List<UserModel>> getAllUsers() async {
     return await isar.userModels.where().findAll();
+  }
+
+  Future<void> addProduct(ProductModel product) async {
+    await isar.writeTxn(() async {
+      await isar.productModels.put(product);
+    });
+  }
+
+  Future<List<ProductModel>> getAllProducts() async {
+    return await isar.productModels.where().findAll();
   }
 }

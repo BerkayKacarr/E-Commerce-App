@@ -11,26 +11,20 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # State Management
   get: ^4.6.6
 
-  # Local Database
-  isar: ^3.1.0
+  isar: ^3.1.0+1
   isar_flutter_libs: any
 
-  # File System Access (required by isar)
   path_provider: ^2.1.2
 
-  # Unique IDs (for product, user etc.)
   uuid: ^4.0.0
 
-  # Cupertino & Material Design support
   cupertino_icons: ^1.0.6
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  # Isar için gerekli code generator
   build_runner: ^2.4.6
   isar_generator: ^3.1.0

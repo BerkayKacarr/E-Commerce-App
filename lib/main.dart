@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'routes/app_pages.dart';
+import 'services/isar_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await IsarService.init();
+
   runApp(MyApp());
 }
 
@@ -16,6 +19,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: AppRoutes.auth,
       getPages: AppPages.pages,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
     );
   }
 }

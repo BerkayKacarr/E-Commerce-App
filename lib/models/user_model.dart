@@ -10,6 +10,5 @@ class UserModel {
   late String email;
   late String password;
 
-  // Tarih eklemek istersen
   DateTime createdAt = DateTime.now();
 }

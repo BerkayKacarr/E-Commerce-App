@@ -39,7 +39,6 @@ class AuthController extends GetxController {
     Get.offNamed('/auth');
   }
 
-  // Giriş işlemi
   Future<void> loginUser() async {
     final email = emailController.text.trim();
     final password = passwordController.text;
@@ -58,11 +57,8 @@ class AuthController extends GetxController {
 
     Get.snackbar("Giriş Başarılı", "Hoş geldin ${user.name}");
     clearForm();
-    // TODO: Anasayfaya yönlendir
-    // Get.offAllNamed('/home');
   }
 
-  // TextField verilerini temizler
   void clearForm() {
     nameController.clear();
     emailController.clear();
